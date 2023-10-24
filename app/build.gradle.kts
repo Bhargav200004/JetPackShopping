@@ -1,16 +1,18 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.example.jetpackshopping"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.jetpackshopping"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -30,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -66,4 +68,30 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+
+    //Navigation Compose dependence
+    implementation("androidx.navigation:navigation-compose:2.7.4")
+
+    //Compose viewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    //room database dependence
+    val roomVersion =  "2.6.0"
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+//    // To use Kotlin annotation processing tool (kapt)
+//    kapt("androidx.room:room-compiler:$roomVersion")
+
+    // To use Kotlin Symbol Processing (KSP)
+    ksp("androidx.room:room-compiler:$roomVersion")
+
+    // optional - Test helpers
+    testImplementation("androidx.room:room-testing:$roomVersion")
+
+    androidTestImplementation("androidx.room:room-testing:$roomVersion")
 }
