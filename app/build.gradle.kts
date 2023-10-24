@@ -2,7 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
-    id("com.google.devtools.ksp")
+//    id("com.google.devtools.ksp")
+//    kotlin("ksp")
 }
 
 android {
@@ -84,11 +85,11 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$roomVersion")
 
-//    // To use Kotlin annotation processing tool (kapt)
-//    kapt("androidx.room:room-compiler:$roomVersion")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$roomVersion")
 
-    // To use Kotlin Symbol Processing (KSP)
-    ksp("androidx.room:room-compiler:$roomVersion")
+//    // To use Kotlin Symbol Processing (KSP)
+//    ksp("androidx.room:room-compiler:$roomVersion")
 
     // optional - Test helpers
     testImplementation("androidx.room:room-testing:$roomVersion")
