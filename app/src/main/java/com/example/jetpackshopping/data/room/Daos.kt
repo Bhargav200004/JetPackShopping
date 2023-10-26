@@ -80,9 +80,10 @@ interface ListDao {
         ON I.storeIdFk = ST.stores_id
     """
     )
-    fun getItemsWithStoreAndList() : Flow<List<ItemsWithStoreAndList>>
+    fun getItemsWithStoreAndList() : Flow<List<ItemsWithStoreAndList>>  //Getting List of Item
 
     //IT filter the listIdFk by the listId
+    //making connection between table
 @Query(
     """
         SELECT * FROM items AS I INNER JOIN shopping_list AS S /* --HERE items and shopping_list are join to eachOther */
@@ -90,9 +91,10 @@ interface ListDao {
         ON I.storeIdFk = ST.stores_id WHERE S.list_id =:listId 
     """
 )
-    fun getItemsWithStoreAndListFilteredById(listId : Int) : Flow<List<ItemsWithStoreAndList>>
+    fun getItemsWithStoreAndListFilteredById(listId : Int) : Flow<List<ItemsWithStoreAndList>>  //Giving list of items
 
     //IT filter single item from the itemId
+    //making connection between table
     @Query(
         """
         SELECT * FROM items AS I INNER JOIN shopping_list AS S /* --HERE items and shopping_list are join to eachOther */
@@ -100,7 +102,7 @@ interface ListDao {
         ON I.storeIdFk = ST.stores_id WHERE I.item_id =:itemId 
     """
     )
-    fun getItemWithStoreAndListFilteredById(itemId : Int) : Flow<ItemsWithStoreAndList>
+    fun getItemWithStoreAndListFilteredById(itemId : Int) : Flow<ItemsWithStoreAndList>  //Giving single item
 
 }
 
