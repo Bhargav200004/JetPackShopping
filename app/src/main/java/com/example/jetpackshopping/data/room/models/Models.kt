@@ -22,7 +22,7 @@ data class Item(
     val id: Int = 0,
     val itemsName : String,
     val qty : String,
-    val listIdFk : Int, //---------------->Join the  items to the shopping list via Foreign key
+    val listId : Int, //---------------->Join the  items to the shopping list via Foreign key
     val storeIdFk : Int,//---------------->Join the items to the stores via Foreign key
     val date : Date,
     val isChecked : Boolean
