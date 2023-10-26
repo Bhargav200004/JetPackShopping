@@ -4,11 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.jetpackshopping.data.room.converters.DateConverter
 import com.example.jetpackshopping.data.room.models.Item
 import com.example.jetpackshopping.data.room.models.ShoppingList
 import com.example.jetpackshopping.data.room.models.Store
 
 //It helps to connect with Database and daos
+
 
 @Database(
     /*
@@ -17,6 +20,7 @@ import com.example.jetpackshopping.data.room.models.Store
      */
     version = 1 , entities = [ShoppingList::class , Item::class , Store::class] , exportSchema = false
 )
+@TypeConverters(value = [DateConverter::class])
 abstract class ShoppingListDatabase : RoomDatabase(){
 
     abstract fun getListDao() : ListDao

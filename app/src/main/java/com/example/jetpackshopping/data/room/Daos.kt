@@ -59,7 +59,7 @@ interface StoreDao{
     fun getAllStores() : Flow<List<Store>>
 
     @Query("SELECT * FROM stores WHERE stores_id =:storeId")
-    fun getStore(storeId : Item) : Flow<Store>
+    fun getStore(storeId : Int) : Flow<Store>
 
 }
 
@@ -102,11 +102,6 @@ interface ListDao {
     )
     fun getItemWithStoreAndListFilteredById(itemId : Int) : Flow<ItemsWithStoreAndList>
 
-    @Update
-    suspend fun updateShoppingList(shoppingList: ShoppingList)
-
-    @Delete
-    suspend fun deleteShoppingList(shoppingList: ShoppingList)
 }
 
 data class ItemsWithStoreAndList(

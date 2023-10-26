@@ -3,6 +3,7 @@ package com.example.jetpackshopping.data.room.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.jetpackshopping.data.room.converters.DateConverter
 import java.util.Date
 
 //Representing shopping List
