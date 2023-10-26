@@ -15,7 +15,7 @@ import com.example.jetpackshopping.data.room.models.Store
 
 @Database(
     /*
-    version -->
+    version --> 1
     entities --> Connect between models(ShoppingList , Item , Store)
      */
     version = 1 , entities = [ShoppingList::class , Item::class , Store::class] , exportSchema = false
