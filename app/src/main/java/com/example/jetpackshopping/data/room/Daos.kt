@@ -106,6 +106,8 @@ interface ListDao {
 
 }
 
+
+//Stores the data of table or Entity
 data class ItemsWithStoreAndList(
     @Embedded val item: Item,
     @Embedded val shoppingList: ShoppingList,
