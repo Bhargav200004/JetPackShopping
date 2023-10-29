@@ -21,12 +21,12 @@ data class Item(
     @ColumnInfo(name = "item_id") //----------------->change the name of the column in the table(ITEMS)
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val itemsName : String,
-    val qty : String,
-    val listId : Int, //---------------->Join the  items to the shopping list via Foreign key
-    val storeIdFk : Int,//---------------->Join the items to the stores via Foreign key
-    val date : Date,
-    val isChecked : Boolean
+    val itemsName: String,
+    val qty: String,
+    val listId: Int, //---------------->Join the  items to the shopping list via Foreign key
+    val storeIdFk: Int,//---------------->Join the items to the stores via Foreign key
+    val date: Date,
+    val isChecked: Boolean
 )
 
 //Represent Shores
@@ -35,5 +35,6 @@ data class Store(
     @ColumnInfo(name = "stores_id")
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val listIdFk: Int
+    val listIdFk: Int,
+    val storeName : String
 )
